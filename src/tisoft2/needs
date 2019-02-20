@@ -1,0 +1,11 @@
+CREATE TABLE "public"."comanda_chip" (
+"comanda" int8 NOT NULL,
+"chip" char(10) COLLATE "default" NOT NULL,
+CONSTRAINT "comanda_chip_pkey" PRIMARY KEY ("comanda", "chip"),
+CONSTRAINT "fk_comanda_chip" FOREIGN KEY ("comanda") REFERENCES "public"."comanda" ("idcomanda") ON DELETE NO ACTION ON UPDATE CASCADE,
+CONSTRAINT "comanda_indice" UNIQUE ("comanda")
+)
+WITH (OIDS=FALSE)
+;
+
+ALTER TABLE "public"."comanda_chip" OWNER TO "postgres";
